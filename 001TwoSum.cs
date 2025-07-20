@@ -3,18 +3,18 @@ using Assert = Xunit.Assert;
 
 namespace LeetCode;
 
-public static class TwoSum {
+public class TwoSumProblem {
 
-    public static (int a, int b) Solve(int[] nums, int target)
+    public int[] TwoSum(int[] nums, int target)
     {
         var hashTable = new Dictionary<int, int>();
         for (var i = 0; i < nums.Length; i++)
         {
             if (hashTable.TryGetValue(nums[i], out var idx))
-                return (idx, i);
+                return [idx, i];
             hashTable[target - nums[i]] = i;
         }
-        return (-1, -1);
+        return [-1, -1];
     }
 }
 
@@ -22,25 +22,25 @@ public static class TwoSum {
 public static class TestTwoSum
 {
     public sealed record Input(int[] Nums, int Target);
-    public sealed record Output(int Idx1, int Idx2);
+    public sealed record Output(int[] Indices);
     
     public static IEnumerable<(Input Input, Output Output)> TestData()
     {
         yield return (
             new Input([1,2], 3), 
-            new Output(0,1));
+            new Output([0,1]));
         
         yield return (
             new Input([2,7,11,15], 9), 
-            new Output(0,1));
+            new Output([0,1]));
         
         yield return (
             new Input([3,2,4], 6), 
-            new Output(1,2));
+            new Output([1,2]));
         
         yield return (
             new Input([3,3], 6), 
-            new Output(0,1));
+            new Output([0,1]));
         
     }
     
@@ -48,6 +48,7 @@ public static class TestTwoSum
     public static void Test((Input input, Output output) data)
     {
         var (input, output) = data;
-        Assert.Equal(TwoSum.Solve(input.Nums, input.Target), (output.Idx1, output.Idx2));
+        var problem = new TwoSumProblem();
+        Assert.Equal(problem.TwoSum(input.Nums, input.Target), output.Indices);
     }
 }
