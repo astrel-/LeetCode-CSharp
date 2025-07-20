@@ -16,7 +16,8 @@ public class Problem003 {
             if (hashTable.TryGetValue(c, out var prevIdx))
             {
                 longest = Math.Max(longest, i - a);
-                hashTable = hashTable.Where(x => x.Value > prevIdx).ToDictionary(x => x.Key, x => x.Value);
+                for (var j = a; j <= prevIdx; j++)
+                    hashTable.Remove(s[j]);
                 a = prevIdx + 1;
             }
             hashTable.Add(c, i);
