@@ -3,5 +3,6 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=74617949_002Dde09_002D46ff_002Db8ae_002Dfc8458442a5d/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TestTwoSum" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::E246A307-1372-4477-96D9-9A0CC673AAFA::net9.0::LeetCode.TestTwoSum&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::E246A307-1372-4477-96D9-9A0CC673AAFA::net9.0::LeetCode.Problem003Test&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
