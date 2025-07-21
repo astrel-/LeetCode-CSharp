@@ -5,24 +5,19 @@ namespace LeetCode;
 
 public class Problem009
 {
-    public bool IsPalindrome(int x) {
+    public bool IsPalindrome(int x)
+    {
         if (x < 0) return false;
         if (x == 0) return true;
+        var reverse = 0;
 
-        var digits = new List<int>();
         var y = x;
-        while (y > 0)
+        while (x > 0)
         {
-            (y, var rem) = int.DivRem(y, 10);
-            digits.Add(rem);
+            (x, var rem) = int.DivRem(x, 10);
+            reverse = reverse * 10 + rem;
         }
-
-        for (var i = 0; i <= digits.Count / 2; i++)
-        {
-            if (digits[i] != digits[digits.Count - 1 - i])
-                return false;
-        }
-        return true;
+        return y == reverse;
     }
 }
 
