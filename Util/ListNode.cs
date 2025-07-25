@@ -22,7 +22,7 @@ public class ListNode
     public IEnumerable<int> Enumerate()
     {
         var node = this;
-        while (node.next is not null)
+        while (node is not null)
         {
             yield return node.val;
             node = node.next;
