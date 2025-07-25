@@ -10,13 +10,13 @@ public class Problem0120
         var m = triangle.Count;
         var cache = new int?[m,m];
         
-        return MinimumTotal(triangle, 0, 0, cache);
+        return MinimumTotal(triangle, 0, 0, ref cache);
     }
     
-    public int MinimumTotal(IList<IList<int>> triangle, int row, int index, int?[,] cache)
+    public int MinimumTotal(IList<IList<int>> triangle, int row, int index, ref int?[,] cache)
     {
         if (cache[row, index].HasValue)
-            return cache[row, index].Value;
+            return cache[row, index]!.Value;
         var total = triangle[0][index];
         if (triangle.Count == 1)
         {
@@ -24,8 +24,8 @@ public class Problem0120
             return total;
         }
         var lowerTriangle = triangle.Skip(1).ToList();
-        var left =  MinimumTotal(lowerTriangle, row+1, index, cache);
-        var right = MinimumTotal(lowerTriangle, row+1, index+1, cache);
+        var left =  MinimumTotal(lowerTriangle, row+1, index, ref cache);
+        var right = MinimumTotal(lowerTriangle, row+1, index+1, ref cache);
         var result = total + Math.Min(left, right);
         cache[row, index] = result;
         return result;
