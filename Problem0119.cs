@@ -3,8 +3,7 @@
 public class Problem0119
 {
     public IList<int> GetRow(int rowIndex) {
-        
-        var curr = new long[rowIndex+1];
+        var curr = new int[rowIndex+1];
         curr[0] = 1;
         curr[rowIndex] = 1;
         long num = 1;
@@ -12,9 +11,9 @@ public class Problem0119
         {
             num *= rowIndex + 1 - i;
             num /= i;
-            curr[i] = num;
+            curr[i] = (int)num;
         }
             
-        return curr.Select(i => (int)i).ToList();
+        return curr.ToList();
     }
 }
