@@ -5,15 +5,30 @@ namespace LeetCode;
 
 public class Problem0120
 {
-    public int MinimumTotal(IList<IList<int>> triangle, int index=0)
+    public int MinimumTotal(IList<IList<int>> triangle)
     {
+        var m = triangle.Count;
+        var cache = new int?[m,m];
+        
+        return MinimumTotal(triangle, 0, 0, cache);
+    }
+    
+    public int MinimumTotal(IList<IList<int>> triangle, int row, int index, int?[,] cache)
+    {
+        if (cache[row, index].HasValue)
+            return cache[row, index].Value;
         var total = triangle[0][index];
         if (triangle.Count == 1)
+        {
+            cache[row, index] = total;
             return total;
+        }
         var lowerTriangle = triangle.Skip(1).ToList();
-        return total + Math.Min(
-            MinimumTotal(lowerTriangle, index), 
-            MinimumTotal(lowerTriangle, index + 1));
+        var left =  MinimumTotal(lowerTriangle, row+1, index, cache);
+        var right = MinimumTotal(lowerTriangle, row+1, index+1, cache);
+        var result = total + Math.Min(left, right);
+        cache[row, index] = result;
+        return result;
     }
 }
 
