@@ -10,4 +10,22 @@ public class ListNode
         this.val = val;
         this.next = next;
     }
+
+    public static ListNode FromArray(int[] inputs)
+    {
+        var node = new ListNode(inputs[^1], null);
+        foreach (var num in inputs.Reverse())
+            node = new ListNode(num, node);
+        return node;
+    }
+    
+    public IEnumerable<int> Enumerate()
+    {
+        var node = this;
+        while (node.next is not null)
+        {
+            yield return node.val;
+            node = node.next;
+        }
+    }
 }
