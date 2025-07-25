@@ -1,4 +1,4 @@
-﻿namespace LeetCode.Util;
+﻿namespace LeetCode;
 
 // Definition for singly-linked list.
 public class ListNode
