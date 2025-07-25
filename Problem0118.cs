@@ -8,9 +8,19 @@ public class Problem0118
             return new List<IList<int>> {new List<int> {1}};
         
         var prev = Generate(numRows - 1);
-        var last = prev[^1];
-        var curr = last.Zip(last.Skip(1)).Select(pair => pair.First + pair.Second).Prepend(1).Append(1).ToList();
-        prev.Add(curr);
+        
+        var curr = new int[numRows];
+        curr[0] = 1;
+        curr[numRows-1] = 1;
+        var num = 1;
+        for (var i = 1; i < numRows - 1; i++)
+        {
+            num *= numRows - i;
+            num /= i;
+            curr[i] = num;
+        }
+            
+        prev.Add(curr.ToList());
         return prev;
     }
 }
