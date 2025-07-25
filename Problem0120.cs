@@ -17,15 +17,14 @@ public class Problem0120
     {
         if (cache[row, index].HasValue)
             return cache[row, index]!.Value;
-        var total = triangle[0][index];
-        if (triangle.Count == 1)
+        var total = triangle[row][index];
+        if (triangle.Count == row+1)
         {
             cache[row, index] = total;
             return total;
         }
-        IList<IList<int>> lowerTriangle = triangle.Skip(1).ToList();
-        var left =  MinimumTotal(ref lowerTriangle, row+1, index, ref cache);
-        var right = MinimumTotal(ref lowerTriangle, row+1, index+1, ref cache);
+        var left =  MinimumTotal(ref triangle, row+1, index, ref cache);
+        var right = MinimumTotal(ref triangle, row+1, index+1, ref cache);
         var result = total + Math.Min(left, right);
         cache[row, index] = result;
         return result;
