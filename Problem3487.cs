@@ -10,7 +10,7 @@ public class Problem3487
         var trackMax = true;
         var max = -100;
         var sum = 0;
-        var set = new HashSet<int>();
+        var array = new bool[100];
 
         foreach (var num in nums)
         {
@@ -20,15 +20,18 @@ public class Problem3487
                 {
                     trackMax = false;
                     sum += num;
-                    set.Add(num);
+                    array[num-1] = true;
                 }
                 else
                     max =  Math.Max(max, num);
             }
             else
             {
-                if (num >0 && set.Add(num))
+                if (num > 0 && !array[num - 1])
+                {
+                    array[num-1] = true;
                     sum += num;
+                }
             }
         }
         
