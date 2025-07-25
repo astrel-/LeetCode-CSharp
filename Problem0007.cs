@@ -3,7 +3,7 @@ using Assert = Xunit.Assert;
 
 namespace LeetCode;
 
-public class Problem007
+public class Problem0007
 {
     public int Reverse(int x)
     {
@@ -29,7 +29,7 @@ public static class Problem007Test
     [TestCaseSource(nameof(TestData))]
     public static void Test(int input, int output)
     {
-        var problem = new Problem007();
+        var problem = new Problem0007();
         Assert.Equal(output, problem.Reverse(input));
     }
 }

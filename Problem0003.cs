@@ -3,7 +3,7 @@ using Assert = Xunit.Assert;
 
 namespace LeetCode;
 
-public class Problem003 {
+public class Problem0003 {
     public int LengthOfLongestSubstring(string s)
     {
         var longest = 0;
@@ -45,7 +45,7 @@ public static class Problem003Test
     [TestCaseSource(nameof(TestData))]
     public static void Test(string input, int output)
     {
-        var problem = new Problem003();
+        var problem = new Problem0003();
         Assert.Equal(output, problem.LengthOfLongestSubstring(input));
     }
 }

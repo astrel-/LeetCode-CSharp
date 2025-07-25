@@ -3,7 +3,7 @@ using Assert = Xunit.Assert;
 
 namespace LeetCode;
 
-public class Problem011
+public class Problem0011
 {
     public int MaxArea(int[] height)
     {
@@ -49,7 +49,7 @@ public static class Problem011Test
     [TestCaseSource(nameof(TestData))]
     public static void Test(int[] input, int output)
     {
-        var problem = new Problem011();
+        var problem = new Problem0011();
         Assert.Equal(output, problem.MaxArea(input));
     }
 }

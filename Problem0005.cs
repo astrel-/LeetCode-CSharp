@@ -3,7 +3,7 @@ using Assert = Xunit.Assert;
 
 namespace LeetCode;
 
-public class Problem005
+public class Problem0005
 {
     public string LongestPalindrome(string s)
     {
@@ -22,7 +22,7 @@ public static class Problem005Test
     [TestCaseSource(nameof(TestData))]
     public static void Test(string input, string output)
     {
-        var problem = new Problem005();
+        var problem = new Problem0005();
         Assert.Equal(output, problem.LongestPalindrome(input));
     }
 }

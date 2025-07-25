@@ -3,7 +3,7 @@ using Assert = Xunit.Assert;
 
 namespace LeetCode;
 
-public class Problem074
+public class Problem0074
 {
     public bool SearchMatrix(int[][] matrix, int target) 
     {
@@ -61,7 +61,7 @@ public static class Problem074Test
     [TestCaseSource(nameof(TestData))]
     public static void Test((int[][] Matrix, int Target) input, bool output)
     {
-        var problem = new Problem074();
+        var problem = new Problem0074();
         Assert.Equal(output, problem.SearchMatrix(input.Matrix, input.Target));
     }
 }

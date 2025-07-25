@@ -3,7 +3,7 @@ using Assert = Xunit.Assert;
 
 namespace LeetCode;
 
-public class Problem077
+public class Problem0077
 {
     public IList<IList<int>> Combine(int n, int k, int start = 1)
     {
@@ -44,7 +44,7 @@ public static class Problem077Test
     [TestCaseSource(nameof(TestData))]
     public static void Test((int N, int K) input, int[][] output)
     {
-        var problem = new Problem077();
+        var problem = new Problem0077();
         Assert.Equal(output, problem.Combine(input.N, input.K));
     }
 }

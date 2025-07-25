@@ -3,7 +3,7 @@ using Assert = Xunit.Assert;
 
 namespace LeetCode;
 
-public class Problem001
+public class Problem0001
 {
     public int[] TwoSum(int[] nums, int target)
     {
@@ -52,7 +52,7 @@ public static class Problem001Test
     public static void Test((int[] Nums, int Target) input, int[] output)
     {
         var (nums, target) = input;
-        var problem = new Problem001();
+        var problem = new Problem0001();
         Assert.Equal(output, problem.TwoSum(nums, target));
     }
 }

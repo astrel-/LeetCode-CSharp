@@ -3,7 +3,7 @@ using Assert = Xunit.Assert;
 
 namespace LeetCode;
 
-public class Problem073
+public class Problem0073
 {
     public void SetZeroes(int[][] matrix)
     {
@@ -50,7 +50,7 @@ public static class Problem073Test
     [TestCaseSource(nameof(TestData))]
     public static void Test(int[][] input, int[][] output)
     {
-        var problem = new Problem073();
+        var problem = new Problem0073();
         problem.SetZeroes(input);
         Assert.Equal(output, input);
     }

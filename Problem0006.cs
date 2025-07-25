@@ -3,7 +3,7 @@ using Assert = Xunit.Assert;
 
 namespace LeetCode;
 
-public class Problem006
+public class Problem0006
 {
     public string Convert(string s, int numRows)
     {
@@ -52,7 +52,7 @@ public static class Problem006Test
     [TestCaseSource(nameof(TestData))]
     public static void Test((string InputString, int NumRows) input, string output)
     {
-        var problem = new Problem006();
+        var problem = new Problem0006();
         Assert.Equal(output, problem.Convert(input.InputString, input.NumRows));
     }
 }

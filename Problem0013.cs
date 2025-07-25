@@ -3,7 +3,7 @@ using Assert = Xunit.Assert;
 
 namespace LeetCode;
 
-public class Problem013
+public class Problem0013
 {
     public int RomanToInt(string s)
     {
@@ -117,7 +117,7 @@ public static class Problem013Test
     [TestCaseSource(nameof(TestData))]
     public static void Test(string input, int output)
     {
-        var problem = new Problem013();
+        var problem = new Problem0013();
         Assert.Equal(output, problem.RomanToInt(input));
     }
 }

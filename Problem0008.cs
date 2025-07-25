@@ -3,7 +3,7 @@ using Assert = Xunit.Assert;
 
 namespace LeetCode;
 
-public class Problem008
+public class Problem0008
 {
     public int MyAtoi(string s)
     {
@@ -79,7 +79,7 @@ public static class Problem008Test
     [TestCaseSource(nameof(TestData))]
     public static void Test(string input, int output)
     {
-        var problem = new Problem008();
+        var problem = new Problem0008();
         Assert.Equal(output, problem.MyAtoi(input));
     }
 }

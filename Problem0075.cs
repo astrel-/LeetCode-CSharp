@@ -3,7 +3,7 @@ using Assert = Xunit.Assert;
 
 namespace LeetCode;
 
-public class Problem075
+public class Problem0075
 {
     public void SortColors(int[] nums)
     {
@@ -37,7 +37,7 @@ public static class Problem075Test
     [TestCaseSource(nameof(TestData))]
     public static void Test(int[] input, int[] output)
     {
-        var problem = new Problem075();
+        var problem = new Problem0075();
         problem.SortColors(input);
         Assert.Equal(output, input);
     }

@@ -3,7 +3,7 @@ using Assert = Xunit.Assert;
 
 namespace LeetCode;
 
-public class Problem009
+public class Problem0009
 {
     public bool IsPalindrome(int x)
     {
@@ -35,7 +35,7 @@ public static class Problem009Test
     [TestCaseSource(nameof(TestData))]
     public static void Test(int input, bool output)
     {
-        var problem = new Problem009();
+        var problem = new Problem0009();
         Assert.Equal(output, problem.IsPalindrome(input));
     }
 }

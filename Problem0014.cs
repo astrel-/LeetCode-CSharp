@@ -3,7 +3,7 @@ using Assert = Xunit.Assert;
 
 namespace LeetCode;
 
-public class Problem014
+public class Problem0014
 {
     public string LongestCommonPrefix(string[] strs)
     {
@@ -46,7 +46,7 @@ public static class Problem014Test
     [TestCaseSource(nameof(TestData))]
     public static void Test(string[] input, string output)
     {
-        var problem = new Problem014();
+        var problem = new Problem0014();
         Assert.Equal(output, problem.LongestCommonPrefix(input));
     }
 }
