@@ -2,7 +2,7 @@
 
 public class Problem0100
 {
-    public bool IsSameTree(TreeNode p, TreeNode q) {
+    public bool IsSameTree(TreeNode? p, TreeNode? q) {
         if (p is null && q is null)
             return true;
 
