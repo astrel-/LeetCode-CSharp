@@ -6,8 +6,13 @@ namespace LeetCode;
 public class Problem1431
 {
     public IList<bool> KidsWithCandies(int[] candies, int extraCandies) {
+        var result = new bool[candies.Length];
         var max = candies.Max();
-        return candies.Select(c => c >= max - extraCandies).ToList();
+        for (var i = 0; i < candies.Length; i++)
+        {
+            result[i] = candies[i] >= max - extraCandies;
+        }
+        return result;
     }
 }
 
