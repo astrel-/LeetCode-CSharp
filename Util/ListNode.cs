@@ -4,14 +4,14 @@
 public class ListNode
 {
     public int val;
-    public ListNode next;
-    public ListNode(int val = 0, ListNode next = null!)
+    public ListNode? next;
+    public ListNode(int val = 0, ListNode? next = null)
     {
         this.val = val;
         this.next = next;
     }
 
-    public static ListNode FromArray(int[] inputs)
+    public static ListNode? FromArray(int[] inputs)
     {
         var node = new ListNode(inputs[^1], null!);
         foreach (var num in inputs.Reverse())
