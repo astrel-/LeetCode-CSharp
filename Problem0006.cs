@@ -38,7 +38,7 @@ public class Problem0006
     }
 }
 
-public static class Problem006Test
+public static class Problem0006Test
 {
     public static IEnumerable<object[]> TestData()
     {
