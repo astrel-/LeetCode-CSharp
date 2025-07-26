@@ -69,7 +69,7 @@ public class Problem0004
             }
         }
         
-        return (val1.Value + val2.Value) / 2.0f;
+        return (val1!.Value + val2!.Value) / 2.0f;
     }
 }
 

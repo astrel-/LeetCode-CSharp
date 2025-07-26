@@ -8,7 +8,7 @@ public class Problem0083
     public ListNode DeleteDuplicates(ListNode head)
     {
         if (head is null)
-            return head;
+            return head!;
         var curr = head;
         var check = head.next;
         while (check is not null)
@@ -25,7 +25,7 @@ public class Problem0083
                 check = check.next;
                 if (check is null)
                 {
-                    curr.next = null;
+                    curr.next = null!;
                     break;
                 }
             }
