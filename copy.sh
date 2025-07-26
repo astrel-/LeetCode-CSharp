@@ -54,4 +54,6 @@ else
   sed -i "s/Problem0000/Problem${TARGET}/g" "$DEST_FILE"
 fi
 
-echo "Successfully created '$DEST_FILE' from '$SRC_FILE' and updated class names."
+git add "$DEST_FILE"
+
+echo "Successfully created '$DEST_FILE'"
