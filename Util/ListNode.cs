@@ -1,22 +1,17 @@
 ﻿namespace LeetCode;
 
 // Definition for singly-linked list.
-public class ListNode
+public class ListNode(int val = 0, ListNode? next = null)
 {
-    public int val;
-    public ListNode? next;
-    public ListNode(int val = 0, ListNode? next = null)
-    {
-        this.val = val;
-        this.next = next;
-    }
+    public int val = val;
+    public ListNode? next = next;
 
     public static ListNode? FromArray(int[] inputs)
     {
-        var node = new ListNode(inputs[^1], null!);
+        ListNode? result = null;
         foreach (var num in inputs.Reverse())
-            node = new ListNode(num, node);
-        return node;
+            result = new ListNode(num, result);
+        return result;
     }
     
     public IEnumerable<int> Enumerate()
