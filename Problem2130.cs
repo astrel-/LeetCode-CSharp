@@ -7,17 +7,31 @@ public class Problem2130
 {
     public int PairSum(ListNode? head)
     {
-        var list = new List<int>();
-        var tail = head;
-        while (head is not null)
+        var slow = head;
+        var fast = head;
+        while (fast?.next is not null)
         {
-            list.Add(head.val);
-            head = head.next;
+            slow = slow!.next;
+            fast = fast.next.next;
+        }
+
+        ListNode? prev = null;
+        while (slow is not null)
+        {
+            var next = slow.next;
+            slow.next = prev;
+            prev = slow;
+            slow = next;
         }
 
         var sum = 0;
-        for (var i = 0; i < list.Count/2; i++)
-            sum = Math.Max(sum, list[i] + list[list.Count - i - 1]);
+        while (head is not null && prev is not null)
+        {
+            sum = int.Max(sum, head.val + prev.val);            
+            head = head.next;
+            prev = prev.next;
+        }
+
         return sum;
     }
 }
