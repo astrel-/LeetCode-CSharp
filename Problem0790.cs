@@ -27,23 +27,19 @@ public class Problem0790
         
         var res = 0;
         if (n >= 1)
-        {
-            res += NumTilings(n - 1, ref cache) % MODULO;
-            res %= MODULO;
-        }
+            res += NumTilings(n - 1, ref cache);
+        res %= MODULO;
 
         if (n >= 2)
-        {
-            res +=  NumTilings(n - 2, ref cache) % MODULO;
-            res %= MODULO;
-        }
+            res +=  NumTilings(n - 2, ref cache);
+
+        res %= MODULO;
         for (var j = 3; j <= n; j++)
         {
             res += 2 * NumTilings(n-j, ref cache) % MODULO;
             res %= MODULO;
         }
             
-        res %= MODULO;
         cache[n] = res;
         return res;
     }
@@ -58,6 +54,7 @@ public static class Problem0790Test
         yield return [3, 5];
         yield return [4, 11];
         yield return [30, 312342182];
+        yield return [40, 833773577];
     }
 
     [TestCaseSource(nameof(TestData))]
