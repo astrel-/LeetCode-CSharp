@@ -5,7 +5,7 @@ namespace LeetCode;
 
 public class Problem2095
 {
-    public ListNode DeleteMiddle(ListNode head)
+    public ListNode? DeleteMiddle(ListNode? head)
     {
         var n = 0;
         var node = head;
@@ -22,7 +22,7 @@ public class Problem2095
         {
             node = node!.next;
         }
-        node.next = node.next?.next;
+        node!.next = node.next?.next;
         return head;
     }
 }
@@ -45,6 +45,6 @@ public static class Problem2095Test
         input[..(input.Length / 2)].CopyTo(output, 0);
         input[(input.Length / 2 + 1)..].CopyTo(output, input.Length / 2);
         
-        Assert.Equal(output, problem.DeleteMiddle(ListNode.FromArray(input)).Enumerate().ToArray());
+        Assert.Equal(output, ListNode.ToArray(problem.DeleteMiddle(ListNode.FromArray(input))));
     }
 }
