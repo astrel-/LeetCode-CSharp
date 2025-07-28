@@ -1,0 +1,49 @@
+﻿using NUnit.Framework;
+using Assert = Xunit.Assert;
+
+namespace LeetCode;
+
+public class Problem0338
+{
+    public int[] CountBits(int n) 
+    {
+        var res = new int[n+1];
+        res[0] = 0;
+        var prev = 1; 
+        var idx = 2;
+        while (idx <= n+1)
+        {
+            if (idx == prev * 2)
+            {
+                res[..prev].CopyTo(res, prev);
+                for (var i = prev; i < idx; i++)
+                    res[i]++;
+                prev = idx;
+            }
+            idx++;
+        }
+        
+        res[..(n+1-prev)].CopyTo(res, prev);
+        for (var i = prev; i < n+1; i++)
+            res[i]++;
+        return res;
+    }
+}
+
+public static class Problem0338Test
+{
+    public static IEnumerable<object[]> TestData()
+    {
+        yield return [0, (int []) [0]];
+        yield return [1, (int []) [0,1]];
+        yield return [2, (int []) [0,1,1]];
+        yield return [5, (int []) [0,1,1,2,1,2]];
+    }
+
+    [TestCaseSource(nameof(TestData))]
+    public static void Test(int input, int[] output)
+    {
+        var problem = new Problem0338();
+        Assert.Equal(output, problem.CountBits(input));
+    }
+}
