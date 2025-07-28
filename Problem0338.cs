@@ -5,27 +5,17 @@ namespace LeetCode;
 
 public class Problem0338
 {
-    public int[] CountBits(int n) 
+    public int[] CountBits(int n)
     {
-        var res = new int[n+1];
+        var res = new int[n + 1];
         res[0] = 0;
-        var prev = 1; 
-        var idx = 2;
-        while (idx <= n+1)
+        for (var i = 1; i <= n; i++)
         {
-            if (idx == prev * 2)
-            {
-                res[..prev].CopyTo(res, prev);
-                for (var i = prev; i < idx; i++)
-                    res[i]++;
-                prev = idx;
-            }
-            idx++;
+            if (i % 2 == 1)
+                res[i] = res[i / 2] + 1;
+            else
+                res[i] = res[i / 2];
         }
-        
-        res[..(n+1-prev)].CopyTo(res, prev);
-        for (var i = prev; i < n+1; i++)
-            res[i]++;
         return res;
     }
 }
