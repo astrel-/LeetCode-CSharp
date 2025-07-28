@@ -5,22 +5,27 @@ namespace LeetCode;
 
 public class Problem0746
 {
-    private int?[] _cache = new int?[1001];
-    public int MinCostClimbingStairs(int[] cost, int idx = -1)
+    public int MinCostClimbingStairs(int[] cost)
+    {
+        var cache = new int?[cost.Length];
+        return MinCostClimbingStairs(ref cost, -1, ref cache);
+    }
+
+    private int MinCostClimbingStairs(ref int[] cost, int idx, ref int?[] cache)
     {
         if (idx >= cost.Length)
             return 0;
         if (idx == -1)
             return Math.Min( 
-                MinCostClimbingStairs(cost, 0),
-                MinCostClimbingStairs(cost, 1));
-        if (idx >= 0 && _cache[idx].HasValue)
-            return _cache[idx]!.Value;
+                MinCostClimbingStairs(ref cost, 0, ref cache),
+                MinCostClimbingStairs(ref cost, 1, ref cache));
+        if (idx >= 0 && cache[idx].HasValue)
+            return cache[idx]!.Value;
         
         var res = cost[idx] + Math.Min( 
-            MinCostClimbingStairs(cost, idx + 1),
-            MinCostClimbingStairs(cost, idx + 2));
-        _cache[idx] = res;
+            MinCostClimbingStairs(ref cost, idx + 1, ref cache),
+            MinCostClimbingStairs(ref cost, idx + 2, ref cache));
+        cache[idx] = res;
         return res;
     }
 }
