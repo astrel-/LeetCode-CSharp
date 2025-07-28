@@ -13,6 +13,9 @@ public class ListNode(int val = 0, ListNode? next = null)
             result = new ListNode(num, result);
         return result;
     }
+
+    public static int[] ToArray(ListNode? node) 
+        => node == null ? [] : node.Enumerate().ToArray();
     
     public IEnumerable<int> Enumerate()
     {
