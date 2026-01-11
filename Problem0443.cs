@@ -9,6 +9,7 @@ public class Problem0443
         var currPos = 1;
         var currChar = chars[0];
         var count = 1;
+        
 
         for (var idx = 1; idx < chars.Length; idx++)
         {
